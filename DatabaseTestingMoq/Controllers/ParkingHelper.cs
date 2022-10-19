@@ -14,7 +14,7 @@ namespace DatabaseTestingMoq.Controllers
         }
         public Pass CreatePass(string purchaser, bool premium, int capacity)
         {
-            Pass newPass = new Pass();
+            Pass newPass = new Pass(purchaser, capacity);
             newPass.Purchaser = purchaser;
             newPass.Premium = premium;
             newPass.Capacity = capacity;
@@ -34,6 +34,27 @@ namespace DatabaseTestingMoq.Controllers
 
             db.SaveChanges();
             return newSpot;
+        }
+
+        public void AddVehicleToPass(string passholderName, string vehicleLicence)
+        {
+            foreach (Vehicle vehicle in db.Vehicle)
+            {
+                if (vehicle.Licence == vehicleLicence)
+                {
+                    Pass newPass = new Pass(passholderName, 3);
+                    db.Passes.Add(newPass);
+                    if (newPass.Capacity.Equals(newPass.Vehicles.Count()))
+                    {
+                        throw new Exception();
+                    }
+                }
+            }
+            if (!db.Vehicle.Any(v => v.Licence == vehicleLicence))
+            {
+                throw new Exception();
+            }
+
         }
     }
 }

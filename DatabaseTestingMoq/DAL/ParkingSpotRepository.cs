@@ -4,41 +4,40 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatabaseTestingMoq.DAL
 {
-    
-    public class PassRepository : IRepository<Pass>
+    public class ParkingSpotRepository : IRepository<ParkingSpot>
     {
         private DatabaseTestingMoqContext _db { get; set; }
-        public PassRepository(DatabaseTestingMoqContext db)
+        public ParkingSpotRepository(DatabaseTestingMoqContext db)
         {
             _db = db;
         }
-        public void Create(Pass entity)
+        public void Create(ParkingSpot entity)
         {
-            _db.Passes.Add(entity);
+            _db.ParkingSpot.Add(entity);
             _db.SaveChanges();
         }
 
-        public void Delete(Pass entity)
+        public void Delete(ParkingSpot entity)
         {
             throw new NotImplementedException();
         }
 
-        public Pass Get(int id)
+        public ParkingSpot Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Pass Get(Func<Pass, bool> func)
+        public ParkingSpot Get(Func<ParkingSpot, bool> func)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Pass> GetAll()
+        public ICollection<ParkingSpot> GetAll()
         {
-            return _db.Passes.ToList();
+            return _db.ParkingSpot.ToList();
         }
 
-        public ICollection<Pass> GetList(Func<Pass, bool> wherefunc)
+        public ICollection<ParkingSpot> GetList(Func<ParkingSpot, bool> wherefunc)
         {
             throw new NotImplementedException();
         }
@@ -48,9 +47,10 @@ namespace DatabaseTestingMoq.DAL
             _db.SaveChanges();
         }
 
-        public void Update(Pass entity)
+        public void Update(ParkingSpot entity)
         {
             throw new NotImplementedException();
         }
     }
+}
 }

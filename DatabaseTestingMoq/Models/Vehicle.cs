@@ -3,6 +3,7 @@
     public class Vehicle
     {
         public int ID { get; set; }
+        public string Licence { get; set; }
         public int PassID { get; set; }
         public virtual Pass Pass { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
