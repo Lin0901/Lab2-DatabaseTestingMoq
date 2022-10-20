@@ -24,7 +24,7 @@ namespace DatabaseTestingMoq.BLL
             return parkingSpotRepo.GetAll().ToList();
         }
 
-        public void CreatePass(int capacity, string purchase)
+        public void CreatePass( string purchase, int capacity)
         {
             if (purchase.Length >= 3 && purchase.Length <= 20 && capacity >= 0)
             {

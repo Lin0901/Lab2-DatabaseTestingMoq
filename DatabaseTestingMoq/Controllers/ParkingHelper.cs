@@ -42,7 +42,7 @@ namespace DatabaseTestingMoq.Controllers
             {
                 if (vehicle.Licence == vehicleLicence)
                 {
-                    Pass newPass = new Pass(passholderName, 3);
+                    Pass newPass = new Pass(passholderName, 5);
                     db.Passes.Add(newPass);
                     if (newPass.Capacity.Equals(newPass.Vehicles.Count()))
                     {
